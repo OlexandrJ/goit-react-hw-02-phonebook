@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactForm.css';
 
-const ContactForm = ({ name, number, handleNameChange, handleNumberChange, addContact }) => {
+const ContactForm = ({ name = '', number = '', handleNameChange, handleNumberChange, addContact }) => {
   return (
     <form className="contact-form" onSubmit={(event) => addContact(event)}>
       <label>
@@ -10,7 +10,7 @@ const ContactForm = ({ name, number, handleNameChange, handleNumberChange, addCo
       </label>
       <label>
         Number
-        <input type="tel" name="number" value={number} onChange={handleNumberChange} required />
+        <input type="tel" value={number} onChange={handleNumberChange} required />
       </label>
       <button className="button-container" type="submit">Add contact</button>
     </form>
