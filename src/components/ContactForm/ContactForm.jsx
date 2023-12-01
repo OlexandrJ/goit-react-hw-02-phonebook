@@ -1,8 +1,9 @@
 import React from 'react';
+import './ContactForm.css';
 
 const ContactForm = ({ name, number, handleNameChange, handleNumberChange, addContact }) => {
   return (
-    <form onSubmit={(event) => addContact(event)}>
+    <form className="contact-form" onSubmit={(event) => addContact(event)}>
       <label>
         Name
         <input type="text" value={name} onChange={handleNameChange} required />
@@ -11,7 +12,7 @@ const ContactForm = ({ name, number, handleNameChange, handleNumberChange, addCo
         Number
         <input type="tel" name="number" value={number} onChange={handleNumberChange} required />
       </label>
-      <button type="submit">Add contact</button>
+      <button className="button-container" type="submit">Add contact</button>
     </form>
   );
 };
