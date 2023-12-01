@@ -13,8 +13,6 @@ const App = () => {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   });
 
   const handleNameChange = (event) => {
@@ -34,14 +32,14 @@ const addContact = () => {
 
   if (!name.trim() || !number.trim()) return;
 
-  const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === state.name.toLowerCase());
+  const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
 
   if (isNameExist) {
     alert(`${state.name} is already in contacts.`);
     return;
   }
 
-  const newContact = { id: nanoid(), name: state.name, number };
+  const newContact = { id: nanoid(), name, number };
   setState((prevState) => ({ contacts: [...prevState.contacts, newContact], name: '', number: '' }));
 };
 

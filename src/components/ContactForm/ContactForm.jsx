@@ -6,12 +6,10 @@ const ContactForm = ({ name, number, handleNameChange, handleNumberChange, addCo
       <label>
         Name
         <input type="text" value={name} onChange={handleNameChange} required />
-        {/* <input type="text" name="name" required /> */}
       </label>
       <label>
         Number
-        <input type="text" value={number} onChange={handleNumberChange} required />
-        {/* <input type="tel" name="number" required /> */}
+        <input type="tel" name="number" value={number} onChange={handleNumberChange} required />
       </label>
       <button type="submit">Add contact</button>
     </form>
