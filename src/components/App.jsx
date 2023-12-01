@@ -32,7 +32,7 @@ const App = () => {
 const addContact = () => {
   const { name, number, contacts } = state;
 
-  if (!state.name.trim() || !number.trim()) return;
+  if (!name.trim() || !number.trim()) return;
 
   const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === state.name.toLowerCase());
 
