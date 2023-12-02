@@ -23,11 +23,13 @@ const App = () => {
     setState((prevState) => ({ ...prevState, number: event.target.value }));
   };
 
-  const handleFilterChange = (event) => {
+const handleFilterChange = (event) => {
     setState((prevState) => ({ ...prevState, filter: event.target.value }));
   };
 
-const addContact = () => {
+const addContact = (event) => {
+  event.preventDefault();
+
   const { name, number, contacts } = state;
 
   if (!name.trim() || !number.trim()) return;
@@ -35,7 +37,7 @@ const addContact = () => {
   const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
 
   if (isNameExist) {
-    alert(`${state.name} is already in contacts.`);
+    alert(`${name} is already in contacts.`);
     return;
   }
 
@@ -56,12 +58,12 @@ const filteredContacts = state.contacts.filter((contact) =>
     <div>
       <h1>Phonebook</h1>
       <ContactForm
-        name={state.name}
-        number={state.number}
-        handleNameChange={handleNameChange}
-        handleNumberChange={handleNumberChange}
-        addContact={addContact}
-      />
+      name={state.name}
+      number={state.number}
+      handleNameChange={handleNameChange}
+      handleNumberChange={handleNumberChange}
+      addContact={addContact}
+    />
 
       <h2>Contacts</h2>
       <Filter filter={state.filter} handleFilterChange={handleFilterChange} />
